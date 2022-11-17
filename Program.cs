@@ -17,10 +17,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IRepository<User>, UserObjectRepository>();
-builder.Services.AddTransient<IRepository<User>, UserObjectRepository>();
-builder.Services.AddScoped<IRepository<User>, UserObjectRepository>();
-builder.Services.AddTransient<UserObjectRepository>(); 
+builder.Services.AddScoped<IRepository<User>, UserRepository>();
+builder.Services.AddTransient<IRepository<User>, UserRepository>();
+builder.Services.AddScoped<IRepository<User>, UserRepository>();
+builder.Services.AddTransient<UserRepository>(); 
 builder.Services.AddMvcCore();
 builder.Services.AddMvc();
 
