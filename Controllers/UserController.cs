@@ -9,6 +9,8 @@ namespace TaskManagerWebApi.Controllers
     [ApiController]
     public class UserController : Controller
     {
+        //dotnet ef migrations add CreateInitial
+        //dotnet ef database update
         private UserRepository _userRepository;
         public UserController(UserRepository userObject)
         {
@@ -44,9 +46,8 @@ namespace TaskManagerWebApi.Controllers
             return Ok(user);
         }
         [HttpPost("EditUser")]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(User user)
         {
-            User user = _userRepository.GetUserByID(id);
             try
             {
                 if (ModelState.IsValid)
@@ -73,7 +74,7 @@ namespace TaskManagerWebApi.Controllers
                 _userRepository.Delete(id);
                 _userRepository.Save();
             }
-            catch (DataException dex)
+            catch (DataException)
             {
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
