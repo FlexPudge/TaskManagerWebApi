@@ -19,12 +19,12 @@ namespace TaskManagerWebApi.Controllers
         [HttpGet("AllUsers")]
         public List<User> GetUser()
         {
-            return _userRepository.GetUsersList();
+            return _userRepository.GetList();
         }
         [HttpGet("FindUserByID")]
         public User GetUserByID(int id)
         {
-            return _userRepository.GetUserByID(id);
+            return _userRepository.GetByID(id);
         }
         [HttpPost("CreateUser")]
         public IActionResult Create(User user)
@@ -70,7 +70,7 @@ namespace TaskManagerWebApi.Controllers
         {
             try
             {
-                User user = _userRepository.GetUserByID(id);
+                User user = _userRepository.GetByID(id);
                 _userRepository.Delete(id);
                 _userRepository.Save();
             }

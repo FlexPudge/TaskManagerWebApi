@@ -33,7 +33,7 @@ namespace TaskManagerWebApi.Repository
                 throw new ArgumentNullException(nameof(id), message: "ID cannot be null");
             }
         }
-        public User GetUserByID(int id)
+        public User GetByID(int id)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace TaskManagerWebApi.Repository
                 throw new ArgumentNullException(nameof(id), message: "ID cannot be null");
             }
         }
-        public List<User> GetUsersList()
+        public List<User> GetList()
         {
             return _context.Users!.ToList();
         }
