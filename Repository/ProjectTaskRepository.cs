@@ -12,16 +12,37 @@ namespace TaskManagerWebApi.Repository
         }
         public void Create(ProjectTask projectTask)
         {
-            _context.ProjectTasks!.Add(projectTask);
+            try
+            {
+                _context.ProjectTasks!.Add(projectTask);
+            }
+            catch
+            {
+                throw new ArgumentNullException(nameof(projectTask));
+            }
         }
         public void Delete(int id)
         {
-            var projectTask = _context.ProjectTasks!.Find(id);
-            _context.ProjectTasks!.Remove(projectTask!);
+            try
+            {
+                var projectTask = _context.ProjectTasks!.Find(id);
+                _context.ProjectTasks!.Remove(projectTask!);
+            }
+            catch
+            {
+                throw new ArgumentNullException(nameof(id), message: "ID cannot be null");
+            }
         }
         public ProjectTask GetByID(int id)
         {
-            return _context.ProjectTasks!.Find(id)!;
+            try
+            {
+                return _context.ProjectTasks!.Find(id)!;
+            }
+            catch
+            {
+                throw new ArgumentNullException(nameof(id), message: "ID cannot be null"); ;
+            }
         }
         public List<ProjectTask> GetList()
         {

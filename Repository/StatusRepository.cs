@@ -12,16 +12,37 @@ namespace TaskManagerWebApi.Repository
         }
         public void Create(Status status)
         {
-            _context.Statuses!.Add(status);
+            try
+            {
+                _context.Statuses!.Add(status);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(nameof(status), ex.Message);
+            }
         }
         public void Delete(int id)
         {
-            var status = _context.Statuses!.Find(id)!;
-            _context.Statuses!.Remove(status);
+            try
+            {
+                var status = _context.Statuses!.Find(id)!;
+                _context.Statuses!.Remove(status);
+            }
+            catch
+            {
+                throw new ArgumentNullException(nameof(id), message: "ID cannot be null");
+            }
         }
         public Status GetByID(int id)
         {
-            return _context.Statuses!.Find(id)!;
+            try
+            {
+                return _context.Statuses!.Find(id)!;
+            }
+            catch
+            {
+                throw new ArgumentNullException(nameof(id), message: "ID cannot be null");
+            }
         }
         public List<Status> GetList()
         {

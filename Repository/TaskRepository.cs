@@ -23,8 +23,12 @@ namespace TaskManagerWebApi.Repository
         }
         public void Delete(int id)
         {
-            var deleteTask = _context.Tasks!.Find(id);
-            _context.Tasks!.Remove(deleteTask!);
+            try
+            {
+                var deleteTask = _context.Tasks!.Find(id);
+                _context.Tasks!.Remove(deleteTask!);
+            }
+            catch { throw new ArgumentNullException(nameof(id), message: "ID cannot be null"); }
         }
         private bool disposed = false;
         public virtual void Dispose(bool disposing)
