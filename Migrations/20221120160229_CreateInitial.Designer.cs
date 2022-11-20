@@ -12,7 +12,7 @@ using TaskManagerWebApi.Data;
 namespace TaskManagerWebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221117163024_CreateInitial")]
+    [Migration("20221120160229_CreateInitial")]
     partial class CreateInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,12 +38,6 @@ namespace TaskManagerWebApi.Migrations
                     b.Property<byte[]>("Image")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int?>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Task")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -60,10 +54,10 @@ namespace TaskManagerWebApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("Idproject")
+                    b.Property<int?>("IdProject")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Idtask")
+                    b.Property<int?>("IdTask")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -145,7 +139,7 @@ namespace TaskManagerWebApi.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Idrole")
+                    b.Property<int>("IdRole")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")

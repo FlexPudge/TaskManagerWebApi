@@ -17,9 +17,7 @@ namespace TaskManagerWebApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: true),
-                    Task = table.Column<int>(type: "int", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -32,8 +30,8 @@ namespace TaskManagerWebApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Idproject = table.Column<int>(type: "int", nullable: true),
-                    Idtask = table.Column<int>(type: "int", nullable: true)
+                    IdProject = table.Column<int>(type: "int", nullable: true),
+                    IdTask = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -95,7 +93,7 @@ namespace TaskManagerWebApi.Migrations
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Idrole = table.Column<int>(type: "int", nullable: true)
+                    IdRole = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

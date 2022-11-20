@@ -7,7 +7,7 @@ namespace TaskManagerWebApi.Model
     public partial class ProjectTask
     {
         public int Id { get; set; }
-        public int? Idproject { get; set; }
-        public int? Idtask { get; set; }
+        public int? IdProject { get; set; }
+        public int? IdTask { get; set; }
     }
 }

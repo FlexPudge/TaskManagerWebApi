@@ -58,10 +58,8 @@ namespace TaskManagerWebApi.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
-           
         }
         public List<Role> GetList()
         {

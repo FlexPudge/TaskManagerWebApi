@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using TaskManagerWebApi.Repository;
 
 namespace TaskManagerWebApi.Model
 {
@@ -13,7 +14,6 @@ namespace TaskManagerWebApi.Model
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
-        public int? Idrole { get; set; }
-
+        public int IdRole { get; set; }
     }
 }
